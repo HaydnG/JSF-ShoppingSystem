@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+
+        <h:outputStylesheet library="css" name="product.css"  />
+    </h:head>
+    <h:body>
+
+        <ui:composition template="/templates/homeTemplate.xhtml">
+
+            <ui:define name="content">
+                <h:panelGroup id="prod">
+                    <h:form id="prodform" styleClass="empty">
+                        <div class="container">
+                            <div class="row">
+                                <h3 style="text-align: center;">Shopping Cart</h3>
+                                <hr/>
+                            </div>
+                            
+                            <ui:repeat var="item"  value="#{cart.shoppingCart}"> 
+                                <div class="row panel panel-default prodhover" style="margin-bottom: 5px;height: 131px;">
+                                    <h:commandLink styleClass="empty" style="cursor:pointer;" action="#{product.ViewProduct(item,0)}">
+                                        <div class="col-sm-2" style="padding: 0px;">
+                                            <img class="card-img-top img-fluid img-responsive" src="http://placehold.it/150x130" alt=""/>
+                                        </div>
+                                        <div class="col-sm-8" style="padding: 0px; padding-left:10px;">
+                                            <div class="row">
+
+                                                <h4 class="">#{item.name} </h4>
+                                                <hr style="margin-top:4px;margin-bottom: 4px;"/>
+                                                <p>#{item.longName}</p>
+                                                <hr style="margin-top:0px;margin-bottom: 6px;"/>
+                                                <p style="font-size: 11px;">#{item.description}</p>
+
+                                            </div>
+                                        </div>
+                                    </h:commandLink>
+    
+                                    <div class="col-sm-2" style="padding: 0px;">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+
+                                            </div>
+                                            <div class="col-xs-6" style="position: relative;top: 2px;">
+                                                
+                                                <div class="row" style="text-align: -webkit-center;left: 29px;font-size: 15px;">Cost</div>
+                                                <div class="row" style="text-align: center;">
+                                                    <span style="font-size: 20px;"><h:outputText  value="£#{item.price}"/></span>
+                                                </div>
+                                            </div>                                       
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-3">
+
+                                            </div>
+                                            <div class="col-xs-1">
+                                                <h:panelGroup id="cart">
+                                                    <h:commandButton rendered="#{cart.ProductInCart(item)}" style="width:30px;" styleClass="HbuttonMinus" action="#{cart.TakeFromCart(item)}">
+                                                        <f:ajax execute="@this" render="cart cartnum cartcost carttotal prod prodform cartgtotal navbar cartprodtotal"/>
+                                                        <span style="position: absolute;left:23px;top:8px;pointer-events: none;" class="glyphicon glyphicon-minus"></span>
+                                                    </h:commandButton> 
+                                                </h:panelGroup>
+                                            </div>
+                                            <div class="col-xs-1 prodcountdiv" style="pointer-events: none;">
+                                                <h:panelGroup id="cartnum">
+                                                    <h:outputText styleClass="prodCount" value="#{cart.GetCartQuantity(item.ID)}"/>
+                                                </h:panelGroup>
+                                            </div>
+                                            <div class="col-xs-1">
+                                                <h:commandButton  styleClass="Hbutton" value=" " style="width:30px;" action="#{cart.AddToCart(item)}">
+                                                    <span style="position: absolute;left:13px;top:8px;pointer-events: none;" class="glyphicon glyphicon-plus"></span>
+                                                    <f:ajax execute="@this" render="carttotal prod prodform cartgtotal navbar cartprodtotal"/>
+                                                </h:commandButton> 
+                                            </div>                                                                                          
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-3">
+
+                                            </div>
+ 
+                                            <div class="col-xs-6" style="">
+                                                <div class="row" style="font-size: 15px;text-align: center;">Item Total</div>
+                                                <div class="row" style="text-align: center;" >
+                                                    <h:panelGroup id="carttotal">
+                                                        <span style="font-size: 22px;"><h:outputText  value="£#{item.price * item.numInCart}"/></span>
+    
+                                                    </h:panelGroup>
+                                                </div>
+                                                
+
+                                            </div>  
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </ui:repeat>
+                            <hr/>
+                            <div class="row panel panel-default" style="margin-top: 20px;padding:20px;">
+                                
+                                <div class="col-lg-6">
+                                </div>
+                                
+                                <div class="col-lg-6">
+                                    
+                                    <div class="row">
+
+                                        
+                                        <div class="col-lg-5">                                            
+                                            <h:panelGroup id="cartprodtotal">
+                                                <h1 style="margin:0px;"><h:outputText styleClass="" style="font-size: 26px;" value="Products: #{cart.totalProdInCart}"/></h1>
+                                            </h:panelGroup>  
+                                        </div>
+
+                                        <div class="col-lg-3">
+                                            <h:panelGroup id="carttotal">
+                                                <h1 style="margin:0px;"><h:outputText styleClass="" style="font-size: 26px;" value="£#{cart.totalCostOfCart}"/></h1>
+                                            </h:panelGroup>                              
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <h:commandButton style="width:120px;height: 40px;line-height: 13px;text-align: left;" styleClass="Pbutton" type="submit" value="Place Order" action="OrderConP">
+                                                <span style="position: absolute;right:14px;top: 14px;pointer-events: none;" class="glyphicon glyphicon-arrow-right"></span>
+                                            </h:commandButton>   
+                                                             
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                
+                                
+                                
+                                
+
+                                <hr/>
+                            </div>
+                           
+
+                        </div>
+
+
+
+                    </h:form>
+                </h:panelGroup>        
+                <br></br>                                               
+
+            </ui:define>
+        </ui:composition>
+
+        
+
+    </h:body >
+</html>

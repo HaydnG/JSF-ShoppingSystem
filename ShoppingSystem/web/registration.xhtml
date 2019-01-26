@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"></link>
+        <h:outputStylesheet library="css" name="login.css"  />
+        <title>Groceries</title>
+    </h:head>
+    <h:body >
+        <div class="Panel registerPanel">
+            <h1>Groceries</h1>
+            <h2>Registration</h2>
+            <h:form class="formPanel" id="loginForm">
+                
+                <h:messages styleClass="message" layout="table" globalOnly="true"/>
+                
+                <div class="inputPanel">
+                    <h:message styleClass="message" for="email" />
+                    <p class="inputText">Email: </p>
+                    <h:inputText id="email" pt:placeholder="email@example.com" value="#{register.address.email}"
+                                 required="true"
+                                 requiredMessage="Please enter your email" >
+                    <f:validateLength minimum="2" maximum="255" />
+                    </h:inputText>
+                </div>
+                
+                <div class="inputPanel">
+                    <h:message styleClass="message" for="username" />
+                    <p class="inputText">Username: </p>
+                    <h:inputText id="username" value="#{register.username}"
+                                 required="true"
+                                 requiredMessage="Please enter your username" >
+                    <f:validateLength minimum="2" maximum="255" />
+                    </h:inputText>
+                </div>
+                
+                <div class="inputPanel">
+                    <h:message styleClass="message" for="password" />
+                    <p class="inputText">Password: </p>
+                    <h:inputSecret id="password"  pt:placeholder="At least six characters" value="#{register.password.password}"
+                                 required="true"
+                                 requiredMessage="Please enter your password">  
+                    <f:validateLength minimum="6" maximum="255" />
+                    </h:inputSecret>
+                    <h:message styleClass="message" for="password2" />
+                    <p class="inputText">Repeat Password: </p>
+                    <h:inputSecret id="password2" value="#{register.password.password2}"
+                                 required="true"
+                                 requiredMessage="Please re-enter your password">  
+                    <f:validateLength minimum="6" maximum="255" />
+                    </h:inputSecret>
+                </div>
+
+                
+                <div class="multiInputPanel container">
+                    <h:message styleClass="message" for="fname" />
+                    <h:message styleClass="message" for="lname" />
+                                       
+                    <div class="row">
+                        <div class="col"><p class="inputText">First name: </p></div>
+                        <div class="col"><p class="inputText">Last name: </p></div>
+                        
+                        <div class="w-100"></div>
+
+                        <div class="col">
+                            <h:inputText styleClass="multiBox" id="fname" value="#{register.fname}"
+                                 required="true"
+                                 requiredMessage="Please enter your first name" >
+
+                            </h:inputText>
+                        </div>
+                        <div class="col">
+                            <h:inputText  styleClass="multiBox" id="lname" value="#{register.lname}"
+                                     required="true"
+                                     requiredMessage="Please enter your last name" >
+
+                            </h:inputText>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <hr></hr>
+                
+                <div class="inputPanel">
+                    <h:message styleClass="message" for="addrline1" />
+                    <p class="inputText">Street address: </p>
+                    <h:inputTextarea id="addrline1"  pt:placeholder="Street and street number" rows="2" value="#{register.address.addrline1}"
+                                 required="true"
+                                 requiredMessage="Please enter your address line 1" >
+               
+                    </h:inputTextarea>
+                    <h:message styleClass="message" for="addrline2" />
+
+                    <h:inputText id="addrline2"  pt:placeholder="Flat/suite/unit/floor"  value="#{register.address.addrline2}"
+                                 requiredMessage="Please enter your address line 1" >
+               
+                    </h:inputText>
+                </div>
+                
+                <div class="multiInputPanel container">
+                    <h:message styleClass="message" for="city" />
+                    <h:message styleClass="message" for="county" />
+                                       
+                    <div class="row">
+                        <div class="col"><p class="inputText">City: </p></div>
+                        <div class="col"><p class="inputText">County: </p></div>
+                        
+                        <div class="w-100"></div>
+
+                        <div class="col">
+                            <h:inputText styleClass="multiBox" id="city" value="#{register.address.city}"
+                                 required="true"
+                                 requiredMessage="Please enter your city" >
+
+                            </h:inputText>
+                        </div>
+                        <div class="col">
+                            <h:inputText  styleClass="multiBox" id="county" value="#{register.address.county}"
+                                     required="true"
+                                     requiredMessage="Please enter your county" >
+
+                            </h:inputText>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="inputPanel">
+                    <h:message styleClass="message" for="zipcode" />
+                    <p class="inputText">Zipcode/Postcode </p>
+                    <h:inputText id="zipcode" value="#{register.address.zipCode}"
+                                 required="true"
+                                 requiredMessage="Please enter your zipcode" >
+                    </h:inputText>
+                </div>
+                
+                
+                <div class="buttonPanel">
+                    <p class="buttonInline"><h:button value="Already have an account?" outcome="LoginP"  styleClass="Pbutton" />
+                    </p>
+                    <p class="buttonInline"><h:commandButton styleClass="Hbutton" type="submit" value="Register" action="#{register.Register()}" />
+                    </p>
+                </div>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

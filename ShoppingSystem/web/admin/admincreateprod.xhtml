@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+
+        <h:outputStylesheet library="css" name="product.css"  />
+    </h:head>
+    <h:body>
+
+        <ui:composition template="/templates/homeTemplate.xhtml">
+
+            <ui:define name="content">
+               
+                <h:form id="prodform" styleClass="empty">
+                    <div class="container">
+                        
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <h:button value="Back" outcome="AProdsP" style="width:100px;height: 40px;line-height: 13px;" styleClass="Pbutton">
+                                    <span style="position: absolute;left:23px;top: 13px;pointer-events: none;" class="glyphicon glyphicon-arrow-left"></span>
+                                </h:button>
+                            </div>
+                            <div class="col-sm-8">
+                                <h3 style="text-align: center;">Product Creation</h3>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row ">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6 panel panel-default" style="padding:20px;">
+                                <h:form >
+                                    <div class="form-group row">
+                                        <h:message styleClass="message" for="name" />
+                                        <label for="name" class="col-sm-3 col-form-label" style="margin-top:5px;">Name: </label>
+                                        <div class="col-sm-9">
+                                            <h:inputText id="name" pt:placeholder="apple" styleClass="form-control" value="#{admin.createProduct.name}"
+                                                         required="true"
+                                                         requiredMessage="Please enter the product name" >
+                                                <f:validateLength minimum="2" maximum="255" />
+                                            </h:inputText>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row">
+                                        <h:message styleClass="message" for="longname" />
+                                        <label for="longname" class="col-sm-3 col-form-label" style="margin-top:5px;">Long Name: </label>
+                                        <div class="col-sm-9">
+                                            <h:inputText id="longname" pt:placeholder="pink lady apple" styleClass="form-control" value="#{admin.createProduct.longName}"
+                                                         required="true"
+                                                         requiredMessage="Please enter the product long name" >
+                                                <f:validateLength minimum="5" maximum="255" />
+                                            </h:inputText>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row">
+                                        <h:message styleClass="message" for="price" />
+                                        <label for="price" class="col-sm-3 col-form-label" style="margin-top:5px;">Price (£): </label>
+                                        <div class="col-sm-9">
+                                            <h:inputText id="price" pt:placeholder="10.00" styleClass="form-control" value="#{admin.createProduct.price}"
+                                                         required="true"
+                                                         requiredMessage="Please enter the product price" >
+                                                <f:validateDoubleRange minimum = "2.00" maximum = "500.00" />
+                                            </h:inputText>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row">
+                                        <h:message styleClass="message" for="store" />
+                                        <label for="store" class="col-sm-3 col-form-label" style="margin-top:5px;">Store: </label>
+                                        <div class="col-sm-9">
+                                            <h:selectOneMenu styleClass="form-control" id="store" value="#{admin.createProduct.store.ID}">
+                                                <f:selectItem noSelectionOption="true" itemLabel="Select Store" />
+                                                <f:selectItems value="#{product.stores}" var="store"  itemLabel="#{store.name}" itemValue="#{store.ID}" />
+
+                                            </h:selectOneMenu>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row">
+                                        <h:message styleClass="message" for="description" />
+                                        <label for="price" class="col-sm-3 col-form-label" style="margin-top:5px;">Description: </label>
+                                        <div class="col-sm-9">
+                                            <h:inputTextarea id="description"  style="resize: none;" pt:placeholder="Cripps Pink is a cultivar of apple. It is one of several cultivars from which apples that meet quality standards can be sold under the trade mark name Pink Lady" rows="5" styleClass="form-control" value="#{admin.createProduct.description}"
+                                                    required="true"
+                                                        requiredMessage="Please enter the product description" >
+                                                <f:validateLength minimum="2" maximum="400" />
+
+                                            </h:inputTextarea>
+                                            
+
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row">
+                                        <h:message styleClass="message" for="disabled" />
+                                        <label for="disabled" class="col-sm-3 col-form-label" style="margin-top:5px;">Disabled: </label>
+                                        <div class="col-sm-3">
+                                            <h:selectBooleanCheckbox id="disabled" styleClass="checkbox-inline" value="#{admin.createProduct.disabled}"> 
+                                             
+                                            </h:selectBooleanCheckbox>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row">
+                                        <div class="col-sm-9"></div>
+                                        <div class="col-sm-3">
+                                            <h:commandButton styleClass="Hbutton" style="height:40px;" type="submit" value="Create Product" action="#{admin.CreateProduct()}" />
+                                        </div>
+                                    </div>
+                                    
+                                </h:form>
+                                
+                            
+                            </div>
+                            <div class="col-md-3"></div>
+
+
+                        </div>
+
+                    </div>
+                </h:form>
+
+                <br></br>                                               
+
+            </ui:define>
+        </ui:composition>
+
+        
+
+    </h:body >
+</html>

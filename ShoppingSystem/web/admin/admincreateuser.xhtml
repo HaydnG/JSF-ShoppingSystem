@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+
+        <h:outputStylesheet library="css" name="product.css"  />
+    </h:head>
+    <h:body>
+
+        <ui:composition template="/templates/homeTemplate.xhtml">
+
+            <ui:define name="content">
+               
+                <h:form id="prodform" styleClass="empty">
+                    <div class="container">
+                        
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <h:button value="Back" outcome="AUserP" style="width:100px;height: 40px;line-height: 13px;" styleClass="Pbutton">
+                                    <span style="position: absolute;left:23px;top: 13px;pointer-events: none;" class="glyphicon glyphicon-arrow-left"></span>
+                                </h:button>
+                            </div>
+                            <div class="col-sm-8">
+                                <h3 style="text-align: center;">User Creation</h3>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row ">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8 panel panel-default" style="padding:20px;">
+                                <h:form id="createuser">
+                                    <div class="form-group row">
+  
+                                        <h:message styleClass="message" for="email" />
+                                        <label for="name" class="col-sm-3 col-form-label" style="margin-top:5px;">Email: </label>
+                                        <div class="col-sm-9">
+                                            <h:inputText id="email" pt:placeholder="email@example.com" styleClass="form-control" value="#{admin.createUser.address.email}"
+                                                         required="true"
+                                                         requiredMessage="Please enter your email" >
+                                            <f:validateLength minimum="2" maximum="255" />
+                                            </h:inputText>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row">
+                                        <h:message styleClass="message" for="username" />
+                                        <label for="username" class="col-sm-3 col-form-label" style="margin-top:5px;">Username: </label>
+                                        <div class="col-sm-9">
+                                            <h:inputText id="username" styleClass="form-control" value="#{admin.createUser.username}"
+                                                        required="true"
+                                                        requiredMessage="Please enter your username" >
+                                           <f:validateLength minimum="2" maximum="255" />
+                                           </h:inputText>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row">
+                                        <h:message styleClass="message" for="password" />
+                                        <label for="password" class="col-sm-3 col-form-label" style="margin-top:5px;">Password: </label>
+                                        <div class="col-sm-9">
+                                            <h:inputSecret id="password"  styleClass="form-control" pt:placeholder="At least six characters" value="#{admin.createUser.password.password}"
+                                                        required="true"
+                                                        requiredMessage="Please enter your password">  
+                                           <f:validateLength minimum="6" maximum="255" />
+                                           </h:inputSecret>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h:message styleClass="message" for="password2" />
+                                        <label for="password2" class="col-sm-3 col-form-label" style="margin-top:5px;">Repeat Password: </label>
+                                        <div class="col-sm-9">
+                                            <h:inputSecret id="password2" styleClass="form-control" value="#{admin.createUser.password.password2}"
+                                                        required="true"
+                                                        requiredMessage="Please re-enter your password">  
+                                           <f:validateLength minimum="6" maximum="255" />
+                                           </h:inputSecret>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row">
+                                        
+                                        <label for="fname" class="col-sm-3 col-form-label" style="margin-top:5px;">First name: </label>
+                                        <div class="col-sm-4">
+                                            <h:message styleClass="message" for="fname" />
+                                            <h:inputText styleClass="form-control" id="fname" value="#{admin.createUser.FName}"
+                                                required="true"
+                                                requiredMessage="Please enter your first name" >
+
+                                           </h:inputText>
+                                        </div>
+                                        <label for="lname" class="col-sm-2 col-form-label" style="margin-top:5px;">Last name: </label>
+                                        <div class="col-sm-3">
+                                            <h:message styleClass="message" for="lname" />
+                                            <h:inputText styleClass="form-control" id="lname" value="#{admin.createUser.LName}"
+                                                required="true"
+                                                requiredMessage="Please enter your last name" >
+
+                                           </h:inputText>
+                                        </div>
+                                    </div>
+                                    
+                                    <hr class="featurette-divider"></hr>
+                                    
+                                    <div class="form-group row">
+                                        <h:message styleClass="message" for="addrline1" />
+                                        
+                                        <label for="addrline1" class="col-sm-3 col-form-label" style="margin-top:5px;">Street address: </label>
+                                        <div class="col-sm-9">
+                                            <h:inputTextarea id="addrline1" style="resize: none;" styleClass="form-control" pt:placeholder="Street and street number" rows="2" value="#{admin.createUser.address.addrline1}"
+                                                        required="true"
+                                                        requiredMessage="Please enter your address line 1" >
+
+                                           </h:inputTextarea>
+                                        </div>                  
+                                        <h:message styleClass="message" for="addrline2" />
+                                        <div class="col-sm-3"></div>
+                                        <div class="col-sm-9">
+                                            <h:inputText id="addrline2"  style="resize: none;" styleClass="form-control" pt:placeholder="Flat/suite/unit/floor"  value="#{admin.createUser.address.addrline1}"
+                                                    requiredMessage="Please enter your address line 1" >
+
+                                            </h:inputText>  
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row">
+     
+                                        
+                                        <label for="city" class="col-sm-3 col-form-label" style="margin-top:5px;">City: </label>
+                                        <div class="col-sm-4">
+                                            <h:message styleClass="message" for="city" />
+                                            <h:inputText styleClass="form-control" id="city" value="#{admin.createUser.address.city}"
+                                                required="true"
+                                                requiredMessage="Please enter your city" >
+
+                                           </h:inputText>
+                                        </div>
+                                        <label for="country" class="col-sm-2 col-form-label" style="margin-top:5px;">County: </label>
+                                        <div class="col-sm-3">
+                                            <h:message styleClass="message" for="country" />
+                                            <h:inputText styleClass="form-control" id="country" value="#{admin.createUser.address.county}"
+                                                required="true"
+                                                requiredMessage="Please enter your county" >
+
+                                           </h:inputText>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <h:message styleClass="message" for="zipcode" />
+                                        <label for="zipcode" class="col-sm-3 col-form-label" style="margin-top:5px;">Zipcode/Postcode: </label>
+                                        <div class="col-sm-9">
+                                            <h:inputText id="zipcode" styleClass="form-control" value="#{admin.createUser.address.zipCode}"
+                                                        required="true"
+                                                        requiredMessage="Please enter your zipcode" >
+                                           <f:validateLength minimum="2" maximum="255" />
+                                           </h:inputText>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    <div class="form-group row">
+                                        <h:message styleClass="message" for="disabled" />
+                                        <label for="disabled" class="col-sm-3 col-form-label" style="margin-top:5px;">Admin: </label>
+                                        <div class="col-sm-3">
+                                            <h:selectBooleanCheckbox id="disabled" styleClass="checkbox-inline" value="#{admin.createUser.admin}"> 
+                                             
+                                            </h:selectBooleanCheckbox>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row">
+                                        <div class="col-sm-9"></div>
+                                        <div class="col-sm-3">
+                                            <h:commandButton styleClass="Hbutton" style="height:40px;" type="submit" value="Create User" action="#{admin.CreateUser()}" />
+                                        </div>
+                                    </div>
+                                    
+                                </h:form>
+                                
+                            
+                            </div>
+                            <div class="col-md-2"></div>
+
+
+                        </div>
+
+                    </div>
+                </h:form>
+
+                <br></br>                                               
+
+            </ui:define>
+        </ui:composition>
+
+        
+
+    </h:body >
+</html>

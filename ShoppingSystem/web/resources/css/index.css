@@ -1,0 +1,288 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 07-Jan-2019, 00:28:17
+    Author     : haydn
+*/
+
+/* Remove the navbar's default rounded borders and increase the bottom margin */ 
+.navbar {
+    margin-bottom: 50px;
+    border-radius: 0;
+}
+
+.menuhov:hover {
+    background-color: #c7c7c7;
+    text-decoration: none;
+}
+
+.disabledProd{
+    border-color: #6d0000 !important;
+    background-color: #6d0000 !important;
+    
+}
+
+.adminUser{
+    border-color: #007d37 !important;
+    background-color: #007d37 !important;
+    
+}
+
+.disabledProd:hover{
+    background-color: #b10000 !important;
+    
+}
+
+.productPanel{
+    
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+    
+}
+
+.productPanel:hover{
+    color: #dcdcdc;
+    background-color: #1d405f;
+    text-decoration: none;
+    font-weight: bold;
+    
+}
+
+a:focus, a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.row.panel.panel-default.prodhover:hover {
+    background-color: #e4e4e4;
+    color:black !important;
+}
+
+.prodcell{
+    padding-left: 11px;
+    padding-right: 11px;
+    height: 272px;
+    width: 234px;
+    
+    
+}
+
+.aprodcell{
+    padding-left: 11px;
+    padding-right: 11px;
+    height: 272px;
+    width: 195px;
+    
+}
+
+.ausercell{
+    padding-left: 11px;
+    padding-right: 11px;
+    height: 183px;
+    width: 195px;
+    
+}
+
+
+.prodtext{
+    
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.separator{
+    position: relative;
+    left: 16px;
+    width:80%;
+    margin: 3px;
+    margin-top: 7px;
+    border-color: #b1b1b1;
+}
+.cartButton{
+    width: 90%;
+    right: 0px;
+    left: 98px;
+    position: relative;
+    
+}
+
+.empty{
+    
+    all:unset;
+}
+
+.search{
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    margin: 30px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    background-color: #e6e6e6;
+    font-size:18px;
+    border-radius: 4px;
+}
+
+.resultsc{
+    
+        padding: 19px;
+    text-align: right;
+    font-weight: 700;
+    font-size: medium;
+}
+
+.store{
+    width: 100%;
+    text-align: center;
+    height: 30px !important;
+    margin: 30px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-left: 0px;
+    background-color: #e6e6e6;
+    font-size:18px;
+    border-radius: 4px;
+    box-shadow: inset 1px 1px 0px 1px #6f6f6f;;
+    -moz-box-shadow: inset 1px 1px 0px 1px #6f6f6f;
+   -webkit-box-shadow: inset 1px 1px 0px 1px #6f6f6f;
+}
+/* Remove the jumbotron's default bottom margin */ 
+.jumbotron {
+    margin-bottom: 0;
+}
+
+/* Add a gray background color and some padding to the footer */
+footer {
+    background-color: #f2f2f2;
+    padding: 25px;
+}
+    
+.site-footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;   
+}
+
+.Hbutton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #fed897;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #fed897;
+	box-shadow:inset 0px 1px 0px 0px #fed897;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6b33d), color-stop(1, #d29105) );
+	background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6b33d', endColorstr='#d29105');
+	background-color:#f6b33d;
+	-webkit-border-top-left-radius:5px;
+	-moz-border-radius-topleft:5px;
+	border-top-left-radius:5px;
+	-webkit-border-top-right-radius:5px;
+	-moz-border-radius-topright:5px;
+	border-top-right-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	-moz-border-radius-bottomright:5px;
+	border-bottom-right-radius:5px;
+	-webkit-border-bottom-left-radius:5px;
+	-moz-border-radius-bottomleft:5px;
+	border-bottom-left-radius:5px;
+	text-indent:0;
+	border:1px solid #eda933;
+	display:inline-block;
+	color:#444444;
+	font-family:arial;
+	font-size:14px;
+	font-weight:bold;
+	font-style:normal;
+	height:30px;
+	line-height:24px;
+        padding: 4px;
+        position: relative;
+        right: 10px;
+	text-decoration:none;
+	text-align:center;
+
+        
+}
+.prodPrice{
+    font-weight: bold;
+    font-size: 18px;
+    position: relative;
+    top: 3px;
+    
+}
+.prodcountdiv{
+    width: 32px;
+    pointer-events: none;
+    padding: 0px;
+    text-align: -webkit-center;
+    right: -8px;
+    
+}
+
+.prodCount{
+    font-weight: bold;
+    font-size: 15px;
+    position: relative;
+    top: 4px;
+    text-align: center;
+    
+}
+
+
+.Hbutton:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d29105), color-stop(1, #f6b33d) );
+	background:-moz-linear-gradient( center top, #d29105 5%, #f6b33d 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d29105', endColorstr='#f6b33d');
+	background-color:#d29105;
+}.Hbutton:active {
+	position:relative;
+	top:1px;
+}
+
+.HbuttonMinus {
+	-moz-box-shadow:inset 0px 1px 0px 0px #fed897;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #fed897;
+	box-shadow:inset 0px 1px 0px 0px #fed897;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6b33d), color-stop(1, #d29105) );
+	background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6b33d', endColorstr='#d29105');
+	background-color:#f6b33d;
+	-webkit-border-top-left-radius:5px;
+	-moz-border-radius-topleft:5px;
+	border-top-left-radius:5px;
+	-webkit-border-top-right-radius:5px;
+	-moz-border-radius-topright:5px;
+	border-top-right-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	-moz-border-radius-bottomright:5px;
+	border-bottom-right-radius:5px;
+	-webkit-border-bottom-left-radius:5px;
+	-moz-border-radius-bottomleft:5px;
+	border-bottom-left-radius:5px;
+	text-indent:0;
+	border:1px solid #eda933;
+	display:inline-block;
+	color:#444444;
+	font-family:arial;
+	font-size:14px;
+	font-weight:bold;
+	font-style:normal;
+	height:30px;
+	line-height:14px;
+        padding: 4px;
+
+	text-align:center;
+        
+}
+.HbuttonMinus:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d29105), color-stop(1, #f6b33d) );
+	background:-moz-linear-gradient( center top, #d29105 5%, #f6b33d 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d29105', endColorstr='#f6b33d');
+	background-color:#d29105;
+}.HbuttonMinus:active {
+	position:relative;
+	top:1px;
+}

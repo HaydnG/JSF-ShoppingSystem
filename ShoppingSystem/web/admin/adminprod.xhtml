@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+
+        <h:outputStylesheet library="css" name="index.css"  />
+    </h:head>
+    <h:body >
+
+        <ui:composition template="/templates/homeTemplate.xhtml">
+
+            <ui:define name="content">
+                <div class="container">    
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <h:button value="Back" outcome="AdminP" style="width:100px;height: 40px;line-height: 13px;" styleClass="Pbutton">
+                                <span style="position: absolute;left:23px;top: 13px;pointer-events: none;" class="glyphicon glyphicon-arrow-left"></span>
+                            </h:button>
+                        </div>
+
+                        <div class="col-sm-8">
+
+                            <h3 style="text-align: center;">Admin Product Management</h3>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    <hr style="margin: 0px;margin-bottom: 5px;"/>
+
+                    <h:form>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <h:button style="width:145px;height: 40px;line-height: 13px;text-align: left;margin-top: 10px;" styleClass="Pbutton" value="Create Product" outcome="ACreateProdP">
+                                                <span style="position: absolute;right:43px;top: 23px;pointer-events: none;" class="glyphicon glyphicon-plus"></span>
+                                </h:button>   
+                                
+                            </div>
+                        </div>  
+                        
+
+                        <div class="row">
+                            <h:inputText styleClass="search" style="margin-top: 15px;" id="searchString" title="searchString"  pt:placeholder="Search" value="#{admin.product.PSearch}" >
+                                <f:ajax event="keyup" render="prod results prodform" listener="#{admin.SearchProducts}" execute="@form"/>
+                            </h:inputText>
+                        </div>  
+                        
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h:selectOneMenu styleClass="store" id="selectStore" value="#{admin.product.store.ID}">
+                                    <f:ajax listener="#{admin.SearchProducts}" render="prod results prodform" execute="@form" />
+                                    <f:selectItem noSelectionOption="true" itemLabel="Search by Store" />
+                                    <f:selectItems value="#{product.stores}" var="store"  itemLabel="#{store.name}" itemValue="#{store.ID}" />
+
+                                </h:selectOneMenu>
+                            </div>
+                            <div class="col-xs-3" style="font-size: 16px;top: 16px;">
+                                <h:selectBooleanCheckbox value="#{admin.product.showDisabled}"  > 
+                                    <f:ajax listener="#{admin.SearchProducts}" render="prod results prodform" execute="@form" />
+                                </h:selectBooleanCheckbox>
+                                Show Disabled products
+                            </div>
+                            <div class="col-xs-3">
+                                <h:panelGroup id="results">
+                                    <div class="resultsc">
+                                        (Max 36 per page) Results:<h:outputText   value="#{admin.products.size()}"/>
+                                    </div>
+                                </h:panelGroup>        
+                            </div>
+                        </div>            
+
+                    </h:form>
+
+
+                    <div class="row">
+                        
+                        <h:panelGroup id="prod">
+                            <h:form id="prodform" styleClass="empty">
+                                <ui:repeat var="item"  value="#{admin.products}"> 
+
+
+                                        <div class="col-sm-2 aprodcell">
+                                            <div class="panel panel-primary #{item.disabled ? 'disabledProd' : ''}" >
+                                                
+                                                <h:commandLink styleClass="empty productPanel" style="cursor:pointer;" action="#{admin.ViewProduct(item)}">
+                                                    <div class="productPanel">
+                                                        <div class="panel-heading #{item.disabled ? 'disabledProd' : ''} " style="height: 55px;">#{item.name}</div>
+                                                        <div style="padding: 0px;" class="panel-body"><img src="https://placehold.it/180x110?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"/></div>
+                                                    </div>
+                                                </h:commandLink>
+                                                <div class="panel-footer"  style="height: 92px;padding: 8px 15px 8px 15px"> 
+
+                                                    <div class="row" >
+
+                                                            <div class="col-xs-6">
+                                                                <span class="prodPrice" style="color:black;">£#{item.price}</span> 
+                                                            </div>
+ 
+                                                            <div class="col-xs-2 " style="pointer-events: none;">
+
+                                                            </div>
+                                                            <h:panelGroup id="buttonendis">
+                                                                <h:panelGroup  layout="block" styleClass="col-xs-2" rendered="#{!item.disabled}">
+                                                                    <h:commandButton  styleClass="Hbutton" value=" " style="width:30px;color:black;" action="#{admin.DisableProduct(item, false)}">
+                                                                        <span style="position: absolute;left:13px;top:8px;pointer-events: none;" class="glyphicon glyphicon-remove"></span>
+                                                                        <f:ajax execute="@this" render="buttonendis prodform cartgtotal navbar prod"/>
+                                                                    </h:commandButton> 
+                                                                </h:panelGroup>
+                                                                <h:panelGroup  layout="block" styleClass="col-xs-2" rendered="#{item.disabled}">
+                                                                    <h:commandButton  styleClass="Hbutton" value=" " style="width:30px;color:black;" action="#{admin.EnableProduct(item, false)}">
+                                                                        <span style="position: absolute;left:13px;top:8px;pointer-events: none;color:black;" class="glyphicon glyphicon-ok"></span>
+                                                                        <f:ajax execute="@this" render="buttonendis prodform cartgtotal navbar prod"/>
+                                                                    </h:commandButton> 
+                                                                </h:panelGroup> 
+                                                            </h:panelGroup>
+
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col align-self-center">
+
+                                                            <hr class="separator"></hr>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col prodtext" style="color:black;">
+                                                            #{item.longName}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+
+                                </ui:repeat>
+                            </h:form>
+                        </h:panelGroup>
+                        
+                        <br></br>                                               
+                    </div>        
+
+                </div>
+            </ui:define>
+        </ui:composition>
+
+        
+
+    </h:body >
+</html>

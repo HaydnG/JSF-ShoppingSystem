@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>HomeP</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>LoginP</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>RegisterP</from-outcome>
+            <to-view-id>/registration.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>ProductP</from-outcome>
+            <to-view-id>/product.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+        <from-outcome>CartP</from-outcome>
+            <to-view-id>/cart.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+        <from-outcome>OrderConP</from-outcome>
+            <to-view-id>/orderconfirmation.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+        <from-outcome>OrderP</from-outcome>
+            <to-view-id>/order.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+        <from-outcome>OrdersP</from-outcome>
+            <to-view-id>/orders.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+        <from-outcome>AdminP</from-outcome>
+            <to-view-id>/admin/admin.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+        <from-outcome>AProdsP</from-outcome>
+            <to-view-id>/admin/adminprod.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+        <from-outcome>AUserP</from-outcome>
+            <to-view-id>/admin/adminuser.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+        <from-outcome>AStoreP</from-outcome>
+            <to-view-id>/admin/adminstore.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+        <from-outcome>AProdP</from-outcome>
+            <to-view-id>/admin/adminproduct.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+        <from-outcome>ACreateProdP</from-outcome>
+            <to-view-id>/admin/admincreateprod.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+        <from-outcome>ACreateUserP</from-outcome>
+            <to-view-id>/admin/admincreateuser.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+        <from-outcome>AViewUserP</from-outcome>
+            <to-view-id>/admin/adminvuser.xhtml</to-view-id>
+        </navigation-case>
+        
+        
+        
+    </navigation-rule>
+    
+    
+
+</faces-config>

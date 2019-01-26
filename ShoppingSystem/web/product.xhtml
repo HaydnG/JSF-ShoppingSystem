@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+
+        <h:outputStylesheet library="css" name="product.css"  />
+    </h:head>
+    <h:body>
+
+        <ui:composition template="/templates/homeTemplate.xhtml">
+
+            <ui:define name="content">
+               
+                <h:form id="prodform" styleClass="empty">
+                    <div class="container">
+                        
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <h:button value="Back" outcome="#{product.backpage}" style="width:100px;height: 40px;line-height: 13px;" styleClass="Pbutton">
+                                    <span style="position: absolute;left:23px;top: 13px;pointer-events: none;" class="glyphicon glyphicon-arrow-left"></span>
+                                </h:button>
+                            </div>
+                            <div class="col-lg-10">
+                                
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row panel panel-default" >
+                           
+                            <div class="col-lg-6" style="padding: 0px;">
+                                <img class="card-img-top img-fluid" src="http://placehold.it/500x400" alt=""/>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                
+                                    <h3 class="">#{product.productView.name} </h3>
+                                    <h4>£#{product.productView.price} </h4>
+                                    <p>#{product.productView.longName}</p>
+                                    <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars
+                                    <hr/>
+                                    <p>#{product.productView.description}</p>
+                                    <hr/>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-9">
+                                    </div>
+                                    <div class="col-xs-1">
+                                        <h:panelGroup id="cart">
+                                            <h:commandButton rendered="#{cart.ProductInCart(product.productView)}" style="width:30px;" styleClass="HbuttonMinus" action="#{cart.TakeFromCart(product.productView)}">
+                                                <f:ajax execute="@this" render="cart cartnum cartcost cartgtotal navbar"/>
+                                                <span style="position: absolute;left:23px;top:8px;pointer-events: none;" class="glyphicon glyphicon-minus"></span>
+                                            </h:commandButton> 
+                                        </h:panelGroup>
+                                    </div>
+                                    <div class="col-xs-1 prodcountdiv" style="pointer-events: none;">
+                                        <h:panelGroup id="cartnum">
+                                            <h:outputText styleClass="prodCount" value="#{cart.GetCartQuantity(product.productView.ID)}"/>
+                                        </h:panelGroup>
+                                    </div>
+                                    <div class="col-xs-1">
+                                        <h:commandButton  styleClass="Hbutton" value=" " style="width:30px;" action="#{cart.AddToCart(product.productView)}">
+                                            <span style="position: absolute;left:13px;top:8px;pointer-events: none;" class="glyphicon glyphicon-plus"></span>
+                                            <f:ajax execute="@this" render="cart cartnum cartcost cartgtotal navbar"/>
+                                        </h:commandButton> 
+                                    </div>                                   
+                                
+                                </div>
+                            </div>
+                            
+                        </div>
+                      
+                        <div class="row panel panel-default">
+                            <div class="card card-outline-secondary my-4" style="padding: 20px">
+                                    <div class="card-header">
+                                        <h4>Product Reviews</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+                                        <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+                                        <hr/>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+                                        <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+                                        <hr/>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+                                        <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+                                        <hr/>
+                                        <a href="#" class="btn btn-success">Leave a Review</a>
+                                    </div>
+                              </div>
+                              <!-- /.card -->
+                        </div>
+                            
+                          <!-- /.col-lg-9 -->
+
+                        
+
+                    </div>
+
+
+
+                </h:form>
+
+                <br></br>                                               
+
+            </ui:define>
+        </ui:composition>
+
+        
+
+    </h:body >
+</html>

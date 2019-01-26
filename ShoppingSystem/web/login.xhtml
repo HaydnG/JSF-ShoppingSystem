@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"></link>
+        <h:outputStylesheet library="css" name="login.css"  />
+        <title>Groceries</title>
+    </h:head>
+    <h:body >
+        <div class="loginPanel Panel">
+            <h1>Groceries</h1>
+            <h2>Login</h2>
+            <h:form class="formPanel" id="loginForm">
+                <h:messages styleClass="message" layout="table" globalOnly="true"/>
+                <div class="inputPanel">
+                    <h:message styleClass="message" for="username" />
+                    <p class="inputText">Username: </p>
+                    <h:inputText styleClass="inputbox" id="username" value="#{user.username}"
+                                 required="true"
+                                 requiredMessage="Please enter your username" >
+                    <f:validateLength minimum="2" maximum="255" />
+                    </h:inputText>
+                </div>
+                <div class="inputPanel">
+                    <h:message styleClass="message" for="password" />
+                    <p class="inputText">Password: </p>
+                    <h:inputSecret styleClass="inputbox" id="password" value="#{user.password}"
+                                 required="true"
+                                 requiredMessage="Please enter your password">
+                    </h:inputSecret>  
+                </div>
+                <div class="buttonPanel">
+                    <p class="buttonInline"><h:commandButton styleClass="Hbutton" type="submit" value="Log in" action="#{user.Login()}" />
+                    </p>
+                    <p class="buttonInline"><h:button value="Create an account" outcome="RegisterP"  styleClass="Pbutton" />
+                    </p>
+                </div>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+
