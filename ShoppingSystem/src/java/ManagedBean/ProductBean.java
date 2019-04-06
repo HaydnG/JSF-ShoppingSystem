@@ -8,13 +8,10 @@ package ManagedBean;
 import CommandController.CommandFactory;
 import DTO.ProductDTO;
 import DTO.StoreDTO;
-import DTO.UserDTO;
 import java.io.Serializable;
 import java.util.ArrayList;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.context.FacesContext;
-import javax.faces.event.AjaxBehaviorEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 

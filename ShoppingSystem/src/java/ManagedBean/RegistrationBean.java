@@ -10,8 +10,8 @@ import DTO.AddressDTO;
 import DTO.PasswordDTO;
 import DTO.UserDTO;
 import java.io.Serializable;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
