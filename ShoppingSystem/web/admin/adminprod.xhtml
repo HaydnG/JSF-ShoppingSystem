@@ -60,7 +60,7 @@
                                 </h:selectOneMenu>
                             </div>
                             <div class="col-xs-3" style="font-size: 16px;top: 16px;">
-                                <h:selectBooleanCheckbox value="#{admin.product.showDisabled}"  > 
+                                <h:selectBooleanCheckbox value="#{admin.showDisabled}"  > 
                                     <f:ajax listener="#{admin.SearchProducts}" render="prod results prodform" execute="@form" />
                                 </h:selectBooleanCheckbox>
                                 Show Disabled products

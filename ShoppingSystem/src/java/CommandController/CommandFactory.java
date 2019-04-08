@@ -77,8 +77,6 @@ public class CommandFactory {
                 return new AddAddressCommand((AddressDTO) DTO);
             case USER_EXISTS:
                 return new UserExistsCommand((UserDTO) DTO);
-            case GET_PRODUCTS:
-                return new GetProductsCommand((ProductDTO) DTO);  
             case COUNT_PRODUCT_IN_CART:
                 return new CountProductInCartCommand((UserDTO) DTO);
             case ADD_PRODUCT_IN_CART:
@@ -111,6 +109,17 @@ public class CommandFactory {
                 return new SetUserRoleCommand((UserDTO) DTO);
             case REMOVE_USER:
                 return new RemoveUserCommand((UserDTO) DTO);
+            default:
+                return null;
+        }
+    }
+    
+    public static Command CreateCommand(int CommandID, Object DTO, Object Extra, Object Extra2){
+
+        switch (CommandID)
+        { 
+            case GET_PRODUCTS:
+                return new GetProductsCommand((ProductDTO) DTO, (Boolean) Extra, (Boolean) Extra2);          
             default:
                 return null;
         }

@@ -21,6 +21,15 @@ public class UserDTO {
     private boolean Admin;
     private String Usearch;
     private boolean ShowAdmins = false;
+    private boolean LoggedIn = false;
+
+    public boolean isLoggedIn() {
+        return LoggedIn;
+    }
+
+    public void setLoggedIn(boolean LoggedIn) {
+        this.LoggedIn = LoggedIn;
+    }
     
     
     public UserDTO(PasswordDTO password, AddressDTO address, int id, String fname, String lname, String username){

@@ -66,7 +66,6 @@ public class UserRowGateway {
         UserDTO user = null;
         AddressDTO address = null;
         PasswordDTO password = null;
-        System.out.println("Before: " + username);
         String sql = "SELECT USERS.ID AS USERID, USERS.FNAME,USERS.ADMIN, USERS.LNAME, USERS.USERNAME, "
                 + "USERS.SALT, USERS.PASSWORD, USERS.ADDRESSID, ADDRESS.ID AS ADDRESSID, ADDRESS.EMAIL, "
                 + "ADDRESS.ADDRLINE1, ADDRESS.ADDRLINE2, ADDRESS.CITY, ADDRESS.COUNTY, ADDRESS.ZIPCODE "

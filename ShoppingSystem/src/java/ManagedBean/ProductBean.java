@@ -60,10 +60,8 @@ public class ProductBean implements Serializable {
     
 
     public void SearchProducts(){
-        Product.setShowDisabled(false);
-        Product.setShowBoth(false);
         
-        this.Products = (ArrayList<ProductDTO>) CommandFactory.CreateCommand(CommandFactory.GET_PRODUCTS, Product).execute();
+        this.Products = (ArrayList<ProductDTO>) CommandFactory.CreateCommand(CommandFactory.GET_PRODUCTS, Product,false, false).execute();
         System.out.println("test");
         cartbean.UpdateShoppingCart();
         

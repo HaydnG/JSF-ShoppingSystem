@@ -32,6 +32,7 @@ public class AdminBean implements Serializable {
     private ProductDTO Product;
     private ArrayList<ProductDTO> Products;
     private ProductDTO CreateProduct;
+    private Boolean ShowDisabled = true;
     
     private ArrayList<UserDTO> Users;
     private UserDTO User;
@@ -45,6 +46,15 @@ public class AdminBean implements Serializable {
     private ProductBean productbean;
     @Inject
     private CartBean cartbean;
+
+    public Boolean getShowDisabled() {
+        return ShowDisabled;
+    }
+
+    public void setShowDisabled(Boolean ShowDisabled) {
+        this.ShowDisabled = ShowDisabled;
+    }
+    
     
     public AdminBean(){
         this.User = new UserDTO();
@@ -58,8 +68,6 @@ public class AdminBean implements Serializable {
         this.CreateProduct.setStore(new StoreDTO());
      
         this.Product = new ProductDTO();
-        this.Product.setShowDisabled(false);
-        this.Product.setShowBoth(true);
         this.Product.setStore(new StoreDTO());
         this.Product.setPSearch("");
         SearchProducts();
@@ -92,8 +100,7 @@ public class AdminBean implements Serializable {
     
     
     public void SearchProducts(){
-        this.Product.setShowBoth(true);
-        Products = (ArrayList<ProductDTO>) CommandFactory.CreateCommand(CommandFactory.GET_PRODUCTS, this.Product).execute();
+        Products = (ArrayList<ProductDTO>) CommandFactory.CreateCommand(CommandFactory.GET_PRODUCTS, this.Product,true,ShowDisabled).execute();
         
 
     }

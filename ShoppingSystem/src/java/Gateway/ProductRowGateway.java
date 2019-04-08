@@ -15,6 +15,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 /**
  *
@@ -208,8 +213,9 @@ public class ProductRowGateway {
         
         return (count > 0);
     }
-    
+ 
     public ProductDTO FindProductByID(int ProductID){
+
         ProductDTO Product = null;
         StoreDTO Store;
         AddressDTO Address;
@@ -230,9 +236,8 @@ public class ProductRowGateway {
 
             if (rs.next())
             {
-                Address = new AddressDTO();
                 //Address = new AddressDTO(rs.getInt("ADDRESS_ID"),rs.getString("EMAIL"), rs.getString("ADDRLINE1"), rs.getString("ADDRLINE2"), rs.getString("CITY"), rs.getString("COUNTY"), rs.getString("ZIPCODE"));
-                Store = new StoreDTO(rs.getInt("STOREID"), rs.getString("STORENAME"), Address);
+                Store = new StoreDTO(rs.getInt("STOREID"), rs.getString("STORENAME"), null);
                 //Store = new StoreDTO();
                 Product = new ProductDTO(rs.getInt("ID"),rs.getString("NAME"),rs.getString("LONGNAME"),rs.getDouble("PRICE"), rs.getString("DESCRIPTION"), Store);
                 Product.setDisabled(rs.getBoolean("DISABLED"));

@@ -19,9 +19,8 @@ public class ProductDTO {
     private StoreDTO Store;
     private String PSearch;
     private int NumInCart;
-    private boolean ShowDisabled = false;
     private boolean Disabled = false;
-    private boolean ShowBoth = false;
+
 
     public ProductDTO(int ID, String Name, String LongName, Double Price, String Description, StoreDTO Store) {
         this.ID = ID;
@@ -42,23 +41,6 @@ public class ProductDTO {
         this.PSearch = null;
     }
 
-    public boolean isShowDisabled() {
-        return ShowDisabled;
-    }
-
-    public boolean isShowBoth() {
-        return ShowBoth;
-    }
-
-    public void setShowBoth(boolean ShowBoth) {
-        this.ShowBoth = ShowBoth;
-    }
-
-    
-    
-    public void setShowDisabled(boolean ShowDisabled) {
-        this.ShowDisabled = ShowDisabled;
-    }
 
     public boolean isDisabled() {
         return Disabled;
