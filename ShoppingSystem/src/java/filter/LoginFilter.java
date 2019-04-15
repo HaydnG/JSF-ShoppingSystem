@@ -55,59 +55,62 @@ public class LoginFilter implements Filter {
         
         String[] urls = request.getRequestURI().split("/");
         System.out.println(urls[2]);
-        
-        if(urls[2].toLowerCase().equals("api".toLowerCase())){
-        
-            try {
-                    chain.doFilter(request, response);
-                } catch (Throwable t) {
+        try{
+            if(urls[2].toLowerCase().equals("api".toLowerCase())){
 
-                    t.printStackTrace();
-                }
-            
-        }else{
-            //Checks if an admin page is being accessed
-             boolean adminreqeust = false;
-            if(urls.length >=4){
-                adminreqeust = "admin".equals( urls[3]);
-                System.out.println(adminreqeust);
-            }
-
-            boolean loggedin = userbean.LoggedIn();
-             
-            boolean Admin = userbean.IsAdmin();
-
-            boolean loginRequest = request.getRequestURI().equals(loginURI);
-            boolean registerRequest = request.getRequestURI().equals(registerURI);
-            boolean resourceRequest = request.getRequestURI().startsWith(request.getContextPath() + "/faces" + ResourceHandler.RESOURCE_IDENTIFIER); //Allow resource requests through
-
-            if(loggedin || loginRequest || registerRequest || resourceRequest){
-
-                if((!adminreqeust) || (adminreqeust && Admin)){ //If page is an admin page, only allow if user admin
-
-
-                    if (!resourceRequest) { // Prevent browser from caching restricted resources.
-                        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
-                        response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
-                        response.setDateHeader("Expires", 0); // Proxies.
-                    }
-
-
-                    try {
+                try {
                         chain.doFilter(request, response);
                     } catch (Throwable t) {
 
                         t.printStackTrace();
                     }
-                }else{
-                    response.sendRedirect(indexURI);
-                }
-
 
             }else{
-                response.sendRedirect(loginURI);
+                //Checks if an admin page is being accessed
+                 boolean adminreqeust = false;
+                if(urls.length >=4){
+                    adminreqeust = "admin".equals( urls[3]);
+                    System.out.println(adminreqeust);
+                }
+
+                boolean loggedin = userbean.LoggedIn();
+
+                boolean Admin = userbean.IsAdmin();
+
+                boolean loginRequest = request.getRequestURI().equals(loginURI);
+                boolean registerRequest = request.getRequestURI().equals(registerURI);
+                boolean resourceRequest = request.getRequestURI().startsWith(request.getContextPath() + "/faces" + ResourceHandler.RESOURCE_IDENTIFIER); //Allow resource requests through
+
+                if(loggedin || loginRequest || registerRequest || resourceRequest){
+
+                    if((!adminreqeust) || (adminreqeust && Admin)){ //If page is an admin page, only allow if user admin
+
+
+                        if (!resourceRequest) { // Prevent browser from caching restricted resources.
+                            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+                            response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+                            response.setDateHeader("Expires", 0); // Proxies.
+                        }
+
+
+                        try {
+                            chain.doFilter(request, response);
+                        } catch (Throwable t) {
+
+                            t.printStackTrace();
+                        }
+                    }else{
+                        response.sendRedirect(indexURI);
+                    }
+
+
+                }else{
+                    response.sendRedirect(loginURI);
+                }
             }
-            }
+        } catch (NullPointerException Ex){
+                
+        }
     }
 
 
