@@ -95,7 +95,7 @@ public class UserRowGateway {
             Logger.getLogger(UserRowGateway.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        System.out.println("PRINT: " + user.getFName());
+       
         return user;
     }
     

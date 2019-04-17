@@ -109,7 +109,10 @@ public class LoginFilter implements Filter {
                 }
             }
         } catch (NullPointerException Ex){
-                
+              Ex.printStackTrace();
+        }
+        catch (IndexOutOfBoundsException Ex){
+               Ex.printStackTrace(); 
         }
     }
 

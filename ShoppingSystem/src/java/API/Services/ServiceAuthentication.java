@@ -27,11 +27,15 @@ public class ServiceAuthentication {
             Username = DecodedString.split(":")[0];
             PasswordString = DecodedString.split(":")[1];
             
+            System.out.println("Username: " + Username + " Password: " + PasswordString);
+            
             User = new UserDTO();
             User.setUsername(Username);   
 
             User = (UserDTO) CommandFactory.CreateCommand(CommandFactory.FIND_USER,User).execute();
-
+            if(User == null){
+                return null;
+            }
             PasswordDTO Password = new PasswordDTO();
             Password.setPassword(PasswordString);
             Password.setSalt(User.getPassword().getSalt());
@@ -51,13 +55,15 @@ public class ServiceAuthentication {
     }
     
     private String DecodeBase64(String authString){
-         
+         System.out.println(authString);
         String decodedAuth = "";
-
-
+        String[] authParts = authString.split("\\s+");
+        String authInfo = authParts[1];
+        
+        System.out.println(authInfo);
         byte[] bytes = null;
         try {
-            bytes = new BASE64Decoder().decodeBuffer(authString);
+            bytes = new BASE64Decoder().decodeBuffer(authInfo);
         } catch (IOException e) {
 
             e.printStackTrace();

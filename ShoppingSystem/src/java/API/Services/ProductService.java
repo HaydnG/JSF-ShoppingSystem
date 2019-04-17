@@ -11,6 +11,7 @@ import DTO.UserDTO;
 import Gateway.ProductRowGateway;
 import java.util.ArrayList;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -23,16 +24,20 @@ import javax.ws.rs.core.Response;
  * @author haydn
  */
 
-@Path("/{AuthID}/Product")
+@Path("/Product")
 public class ProductService {
     
     
     @GET
     @Path("{id}")
     @Produces("application/json")
-    public ProductDTO GetProduct(@PathParam("id") int ProductID, @PathParam("AuthID") String AuthID){
+    public ProductDTO GetProduct(@PathParam("id") int ProductID, @HeaderParam("authorization") String AuthID){
         ProductRowGateway PGate = new ProductRowGateway();
         ServiceAuthentication Auth = new ServiceAuthentication();     
+        
+        if(AuthID == null){
+            throw new NotAuthorizedException("Access denied");
+        }
         
         UserDTO User = Auth.AuthenticateUser(AuthID);
         if(User == null || !User.isLoggedIn()){
@@ -45,9 +50,13 @@ public class ProductService {
     @GET
     @Path("/All/{search}")
     @Produces("application/json")
-    public  ArrayList<ProductDTO> GetProducts(@PathParam("search") String Search,@PathParam("AuthID") String AuthID){
+    public  ArrayList<ProductDTO> GetProducts(@PathParam("search") String Search,@HeaderParam("authorization") String AuthID){
         ProductRowGateway PGate = new ProductRowGateway();
         ServiceAuthentication Auth = new ServiceAuthentication();     
+        
+        if(AuthID == null){
+            throw new NotAuthorizedException("Access denied");
+        }
         
         UserDTO User = Auth.AuthenticateUser(AuthID);
         if(User == null || !User.isLoggedIn()){
@@ -60,9 +69,13 @@ public class ProductService {
     @GET
     @Path("/All/{search}/Store/{id}")
     @Produces("application/json")
-    public  ArrayList<ProductDTO> GetProductsByStore(@PathParam("search") String Search,@PathParam("AuthID") String AuthID,@PathParam("id") int StoreID){
+    public  ArrayList<ProductDTO> GetProductsByStore(@PathParam("search") String Search,@HeaderParam("authorization") String AuthID,@PathParam("id") int StoreID){
         ProductRowGateway PGate = new ProductRowGateway();
         ServiceAuthentication Auth = new ServiceAuthentication();     
+        
+        if(AuthID == null){
+            throw new NotAuthorizedException("Access denied");
+        }
         
         UserDTO User = Auth.AuthenticateUser(AuthID);
         if(User == null || !User.isLoggedIn()){

@@ -11,6 +11,7 @@ import DTO.UserDTO;
 import Gateway.ProductRowGateway;
 import java.util.ArrayList;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -23,14 +24,18 @@ import javax.ws.rs.core.Response;
  * @author haydn
  */
 
-@Path("/{AuthID}/User")
+@Path("/User")
 public class UserService {
     
     
     @GET
     @Produces("application/json")
-    public UserDTO GetProduct(@PathParam("AuthID") String AuthID){
+    public UserDTO GetProduct(@HeaderParam("authorization") String AuthID){
         ServiceAuthentication Auth = new ServiceAuthentication();     
+        
+        if(AuthID == null){
+            throw new NotAuthorizedException("Access denied");
+        }
         
         UserDTO User = Auth.AuthenticateUser(AuthID);
         if(User == null || !User.isLoggedIn()){
