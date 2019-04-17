@@ -66,9 +66,9 @@ public class ProductRowGateway {
 
             while(rs.next())
             {
-                Address = new AddressDTO();
+
                 //Address = new AddressDTO(rs.getInt("ADDRESS_ID"),rs.getString("EMAIL"), rs.getString("ADDRLINE1"), rs.getString("ADDRLINE2"), rs.getString("CITY"), rs.getString("COUNTY"), rs.getString("ZIPCODE"));
-                Store = new StoreDTO(rs.getInt("STOREID"), rs.getString("STORENAME"), Address);
+                Store = new StoreDTO(rs.getInt("STOREID"), rs.getString("STORENAME"), null);
                 //Store = new StoreDTO();
                 Product = new ProductDTO(rs.getInt("ID"),rs.getString("NAME"),rs.getString("LONGNAME"),rs.getDouble("PRICE"), rs.getString("DESCRIPTION"), Store);
                 Product.setDisabled(rs.getBoolean("DISABLED"));
