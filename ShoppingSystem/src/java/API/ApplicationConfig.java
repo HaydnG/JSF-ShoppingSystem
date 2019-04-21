@@ -23,6 +23,7 @@ public class ApplicationConfig extends Application
      */
     private void addRestResourceClasses(Set<Class<?>> resources)
     {
+        resources.add(API.Services.CartService.class);
         resources.add(API.Services.ProductService.class);
         resources.add(API.Services.UserService.class);
     }

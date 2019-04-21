@@ -6,16 +6,12 @@
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/API/ApplicationConfig.java</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/Gateway/UserRowGateway.java</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/Gateway/CartRowGateway.java</file>
-            <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/web/WEB-INF/web.xml</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/API/Services/ProductService.java</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/Gateway/AddressRowGateway.java</file>
-            <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/conf/MANIFEST.MF</file>
-            <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/API/Services/ServiceAuthentication.java</file>
-            <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/DbConn/DbManager.java</file>
-            <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/web/WEB-INF/faces-config.xml</file>
-            <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/filter/LoginFilter.java</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/API/Services/UserService.java</file>
+            <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/API/Services/ServiceAuthentication.java</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/Gateway/ProductRowGateway.java</file>
+            <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/API/Services/CartService.java</file>
         </group>
     </open-files>
 </project-private>
