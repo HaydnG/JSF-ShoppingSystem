@@ -103,5 +103,27 @@ public class CartService {
         }
     }
     
+    @GET
+    @Path("/Get/{id}")
+    @Produces("application/json")
+    public String  GetCartProductCount(@PathParam("id") int ProductID,@HeaderParam("authorization") String AuthID){
+        CartRowGateway CGate = new CartRowGateway();
+        ServiceAuthentication Auth = new ServiceAuthentication();   
+     
+
+        if(AuthID == null){
+            throw new NotAuthorizedException("Access denied");
+        }
+        
+        UserDTO User = Auth.AuthenticateUser(AuthID);
+        if(User == null || !User.isLoggedIn()){
+            throw new NotAuthorizedException("Access denied");
+        }else{
+      
+            
+            return CGate.CountProductInCart(ProductID, User.getID())+ "";
+        }
+    }
+    
     
 }

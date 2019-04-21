@@ -27,6 +27,8 @@ import javax.ws.rs.core.MediaType;
  */
 public class ProductRowGateway {
     
+    
+    
     public ArrayList<ProductDTO> GetProducts(String PSearch, boolean ShowDisabled, boolean ShowBoth){
         ArrayList<ProductDTO> Products = new ArrayList<ProductDTO>();
         
@@ -42,7 +44,7 @@ public class ProductRowGateway {
         String sql ="SELECT PRODUCT.ID, PRODUCT.NAME,PRODUCT.DISABLED, PRODUCT.STOREID, PRODUCT.LONGNAME, PRODUCT.PRICE, PRODUCT.DESCRIPTION, STORE.ID AS STOREID, STORE.NAME AS STORENAME "
                     + "FROM PRODUCT "
                     + "INNER JOIN STORE ON PRODUCT.STOREID = STORE.ID "
-                    + "WHERE LOWER(PRODUCT.NAME) LIKE ? ";
+                    + "WHERE LOWER(PRODUCT.NAME) LIKE ?";
         if(ShowDisabled){
             sql +="AND PRODUCT.DISABLED = TRUE ";
             sql +="FETCH FIRST 36 ROWS ONLY";
