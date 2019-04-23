@@ -4,13 +4,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/ManagedBean/RegistrationBean.java</file>
+            <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/DTO/DTOConverter.java</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/Gateway/UserRowGateway.java</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/web/index.xhtml</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/CommandController/CommandFactory.java</file>
+            <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/web/WEB-INF/web.xml</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/API/Services/ProductService.java</file>
-            <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/API/Services/UserService.java</file>
+            <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/conf/MANIFEST.MF</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/API/Services/ServiceAuthentication.java</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/API/Services/CartService.java</file>
+            <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/web/WEB-INF/faces-config.xml</file>
+            <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/CommandController/Commands/AddUserCommand.java</file>
+            <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/API/Services/UserService.java</file>
         </group>
     </open-files>
 </project-private>

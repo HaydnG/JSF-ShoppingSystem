@@ -54,7 +54,10 @@ public class LoginFilter implements Filter {
         String indexURI = request.getContextPath() + "/faces/index.xhtml";
         
         String[] urls = request.getRequestURI().split("/");
-        System.out.println(urls[2]);
+        if(urls.length <3){
+            response.sendRedirect(loginURI);
+        }
+        
         System.out.println("Encoding: " + request.getCharacterEncoding());
         System.out.println("Content-type: " + request.getContentType());
         
