@@ -55,8 +55,11 @@ public class LoginFilter implements Filter {
         
         String[] urls = request.getRequestURI().split("/");
         System.out.println(urls[2]);
+        System.out.println("Encoding: " + request.getCharacterEncoding());
+        System.out.println("Content-type: " + request.getContentType());
+        
         try{
-            if(urls[2].toLowerCase().equals("api".toLowerCase())){
+            if(urls[2].toLowerCase().equals("api".toLowerCase()) || request.getMethod().equalsIgnoreCase("POST")){
 
                 try {
                         chain.doFilter(request, response);

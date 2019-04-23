@@ -14,6 +14,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -25,7 +26,7 @@ import javax.ws.rs.Produces;
 @Path("/Cart")
 public class CartService {
     
-    @POST
+    @PUT
     @Path("/Increment/{id}")
     @Produces("application/json")
     public String IncrementCart(@PathParam("id") int ProductID, @HeaderParam("authorization") String AuthID){
@@ -52,7 +53,7 @@ public class CartService {
         }
     }
     
-    @POST
+    @PUT
     @Path("/Decrement/{id}")
     @Produces("application/json")
     public String DecrementCart(@PathParam("id") int ProductID, @HeaderParam("authorization") String AuthID){

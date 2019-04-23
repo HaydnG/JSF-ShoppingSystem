@@ -5,14 +5,20 @@
  */
 package API.Services;
 
+import CommandController.Command;
+import CommandController.CommandFactory;
+import DTO.PasswordDTO;
 import DTO.ProductDTO;
 import DTO.StoreDTO;
 import DTO.UserDTO;
 import Gateway.ProductRowGateway;
+import Gateway.UserRowGateway;
 import java.util.ArrayList;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.NotAuthorizedException;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -30,7 +36,7 @@ public class UserService {
     
     @GET
     @Produces("application/json")
-    public UserDTO GetProduct(@HeaderParam("authorization") String AuthID){
+    public UserDTO GetUser(@HeaderParam("authorization") String AuthID){
         ServiceAuthentication Auth = new ServiceAuthentication();     
         
         if(AuthID == null){
@@ -46,6 +52,29 @@ public class UserService {
             
             return User;
         }
+    }
+    
+    
+    @POST
+    @Path("Register")
+    @Consumes("application/json")
+    @Produces("application/json")
+    public String AddUser(String NewUser){
+        System.out.println(NewUser);
+        
+        UserRowGateway URG = new UserRowGateway();
+        
+//        if(!URG.UserExists(NewUser)){
+//            
+//            NewUser.setPassword((PasswordDTO)CommandFactory.CreateCommand(CommandFactory.HASH_PASSWORD, NewUser.getPassword()).execute());
+//            
+//            return URG.AddUser(NewUser) + "";
+//            
+//        }else{
+//            return "-1";
+//        }
+        
+        return  NewUser;
     }
 
 }
