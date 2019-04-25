@@ -1,6 +1,7 @@
 package DTO;
 
 
+import java.sql.Timestamp;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -76,18 +77,16 @@ public class DTOConverter {
                 ProductDTO product = new ProductDTO();
 
                 product.setID(Jproduct.getInt("ID"));
-                product.setDescription(Jproduct.getString("description"));
-                product.setDisabled(Jproduct.getBoolean("disabled"));
-                product.setLongName(Jproduct.getString("longName"));
-                product.setName(Jproduct.getString("name"));
-                product.setNumInCart(Jproduct.getInt("numInCart"));
-                product.setPrice(Jproduct.getDouble("price"));
+                product.setDescription(Jproduct.getString("Description"));
+                product.setDisabled(Jproduct.getBoolean("Disabled"));
+                product.setLongName(Jproduct.getString("LongName"));
+                product.setName(Jproduct.getString("Name"));
+                product.setNumInCart(Jproduct.getInt("NumInCart"));
+                product.setPrice(Jproduct.getDouble("Price"));
 
-                JSONObject JStore = Jproduct.getJSONObject("store");
+                JSONObject JStore = Jproduct.getJSONObject("Store");
                 StoreDTO store = new StoreDTO();
                 store.setID(JStore.getInt("ID"));
-                store.setName(JStore.getString("name"));
-
                 product.setStore(store);
 
                 Products.add(product);
@@ -105,6 +104,34 @@ public class DTOConverter {
 
 
         return Products;
+    }
+    
+    public OrderDTO JsonArrayToOrderDTO(String Json){
+        
+
+        if(Json == null){
+            return null;
+        }
+
+        OrderDTO order = new OrderDTO();
+        
+        try {
+            JSONObject Pojo = new JSONObject(Json);
+            
+            order.setOrderDate(Timestamp.valueOf(Pojo.getString("orderDate")));
+            order.setUser(JsonTOUserDTO(Pojo.getJSONObject("user").toString()));
+            
+            JSONArray products = Pojo.getJSONArray("OrderProducts");
+            order.setOrderProducts(JsonArrayToProductDTOArray(products.toString()));
+                             
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+
+        return order;
     }
 
 }
