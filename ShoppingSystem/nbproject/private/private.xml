@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/API/ApplicationConfig.java</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/ManagedBean/OrderBean.java</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/API/Services/OrderService.java</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/DTO/DTOConverter.java</file>
@@ -11,12 +12,15 @@
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/web/index.xhtml</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/CommandController/CommandFactory.java</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/API/Services/ProductService.java</file>
+            <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/CommandController/Commands/FindOrderCommand.java</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/Gateway/OrderRowGateway.java</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/API/Services/ServiceAuthentication.java</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/API/Services/CartService.java</file>
+            <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/DTO/OrderDTO.java</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/ManagedBean/CartBean.java</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/CommandController/Commands/PlaceOrderCommand.java</file>
             <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/API/Services/UserService.java</file>
+            <file>file:/A:/Uni/GITHUB/JSF/JSF-ShoppingSystem/ShoppingSystem/src/java/Gateway/ProductRowGateway.java</file>
         </group>
     </open-files>
 </project-private>

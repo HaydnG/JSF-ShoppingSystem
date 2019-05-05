@@ -48,6 +48,13 @@ public class ProductService {
     }
     
     @GET
+    @Path("/All")
+    @Produces("application/json")
+    public  ArrayList<ProductDTO> GetProductsclear(@HeaderParam("authorization") String AuthID){
+        return GetProducts("", AuthID);
+    }
+    
+    @GET
     @Path("/All/{search}")
     @Produces("application/json")
     public  ArrayList<ProductDTO> GetProducts(@PathParam("search") String Search,@HeaderParam("authorization") String AuthID){

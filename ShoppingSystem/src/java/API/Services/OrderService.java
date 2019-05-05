@@ -39,11 +39,12 @@ public class OrderService {
     @Path("Place")
     @Consumes("application/json")
     @Produces("application/json")
-    public String AddUser(String OrderText , @HeaderParam("authorization") String AuthID){
+    public OrderDTO PlaceOrder(String OrderText , @HeaderParam("authorization") String AuthID){
         
         
         UserRowGateway URG = new UserRowGateway();
         ServiceAuthentication Auth = new ServiceAuthentication();   
+        int OrderID;
         
         
 
@@ -59,9 +60,16 @@ public class OrderService {
             OrderDTO Order =  con.JsonArrayToOrderDTO(OrderText);
             CommandFactory.CreateCommand(CommandFactory.CLEAR_CART,User).execute();
             
-            return (int)CommandFactory.CreateCommand(CommandFactory.PLACE_ORDER,Order).execute() + "";
+            if(Order.getOrderProducts().size() <= 0){
+                Order = new OrderDTO();
+                Order.setOrderID(-1);
+                return Order;
+            }else{
+                Order.setOrderID((int)CommandFactory.CreateCommand(CommandFactory.PLACE_ORDER,Order).execute());
+                
+                return  (OrderDTO) CommandFactory.CreateCommand(CommandFactory.FIND_ORDER, Order).execute();
+            }
             
-         
         }    
     }
 }
