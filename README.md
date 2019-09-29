@@ -7,17 +7,12 @@ A JSF web application using the command interface design pattern.
 
 * Login, Registration
 * Add/Remove from cart
-* Create/View Order
+* Create/Place/View Order
+* Order History
 * Add/Remove users
 * Add/Remove Products
 * View Products
-
-## What I Learned
-
-* Use of java and jsf to make a web applicaton
-* Command Design pattern
-* Use of ajax to make pages interactive
-
+* Full site management from an Admin account
 
 ## Login & Registration
 ![Login](https://i.imgur.com/HHy6ajb.png)  
