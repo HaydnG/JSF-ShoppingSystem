@@ -1,6 +1,7 @@
 ![Homepage](https://i.imgur.com/woX0kFn.png)
 
-Done as part of a project peice - NOT READY FOR USE
+# Done as part of a project peice - NOT READY FOR USE
+# Corresponding Android Application code - https://github.com/HaydnG/GroceryShopping-Android-App--RESTful-
 
 # JSF Shopping System
 A JSF web application using the command interface design pattern.
